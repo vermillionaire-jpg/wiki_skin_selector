@@ -1,0 +1,3 @@
+# Wikipedia Skin Selector
+
+Prototype.
