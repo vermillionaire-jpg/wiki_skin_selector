@@ -1,3 +1,5 @@
+// content.js - logic for checking if current page is a wiki and redirecting to the selected skin if necessary
+
 const url = new URL(window.location.href);
 const host = url.hostname;
 
@@ -20,7 +22,12 @@ const isWiki = [
 // and does not start with "www.", then it is a subdomain of the wiki domain.
 const isSubdomain = host.split(".").length > 2 && !host.startsWith("www.");
 
-if (isWiki && isSubdomain && url.searchParams.get("useskin") !== "vector") {
-    url.searchParams.set("useskin", "vector");
-    window.location.replace(url);
-}
+// get skin from storage (logic in popup.js)
+chrome.storage.sync.get("skin", ({ skin }) => {
+    if (!skin) return;
+
+    if (isWiki && isSubdomain && url.searchParams.get("useskin") !== skin) {
+        url.searchParams.set("useskin", skin);
+        window.location.replace(url);
+    }
+});

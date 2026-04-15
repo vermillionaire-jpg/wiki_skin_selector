@@ -2,6 +2,13 @@
   "manifest_version": 3,
   "name": "Wiki Skin Selector",
   "version": "0.1",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
   "content_scripts": [
     {
       "matches": [
@@ -15,7 +22,9 @@
         "*://*.wikivoyage.org/*",
         "*://*.wikimedia.org/*"
       ],
-      "js": ["content.js"],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start"
     }
   ]
