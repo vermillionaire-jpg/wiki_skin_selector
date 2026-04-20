@@ -20,7 +20,10 @@
         "*://*.wikisource.org/*",
         "*://*.wikiversity.org/*",
         "*://*.wikivoyage.org/*",
-        "*://*.wikimedia.org/*"
+        "*://*.wikimedia.org/*",
+        "*://*.wikidata.org/*",
+        "*://*.mediawiki.org/*",
+        "*://*.wikifunctions.org/*"
       ],
       "js": [
         "content.js"
